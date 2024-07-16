@@ -44,6 +44,49 @@ body {
     margin-bottom: 20px;
 }
 
+/* New Section Styling */
+.fursona-content {
+    display: flex;
+    align-items: center;
+}
+
+.fursona-text {
+    flex: 1;
+}
+
+.fursona-image {
+    margin-left: 20px;
+}
+
+.fursona-image img {
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+/* Professional Section */
+.professional-content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.professional-item {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 30%;
+    transition: all 0.3s ease-in-out;
+}
+
+.professional-item:hover {
+    background-color: #444;
+}
+
+.professional-item img {
+    max-width: 50px;
+    margin-bottom: 10px;
+}
+
 /* Donate Section */
 .donate-section {
     text-align: center;
@@ -71,46 +114,77 @@ body {
 /* Social Buttons */
 .social-buttons {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .social-button {
-    background-color: #bb86fc;
+    background-color: #333;
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
-    font-size: 16px;
+    margin: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
 }
 
 .social-button:hover {
-    background-color: #9b68d1;
+    background-color: #444;
 }
 
-.working-on-it {
-    color: #bbb;
-    font-style: italic;
-    margin-top: 5px;
+/* Contact Grid */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
-/* Background animation */
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
+.contact-item {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
 }
 
-.kanji {
-    position: absolute;
-    top: -10%;
-    color: white;
-    font-size: 2rem;
-    animation: move linear infinite;
+.contact-item:hover {
+    background-color: #444;
+}
+
+.contact-item a {
+    color: #bb86fc;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .fursona-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fursona-image {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .professional-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .professional-item {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
 }
