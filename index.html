@@ -7,7 +7,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <div class="top-bar">
+        <div class="logo">
+            <img src="images/profile.jpg" alt="Profile Picture">
+            <span>furplex</span>
+        </div>
+    </div>
+    <div class="container" id="content-container">
         <!-- Profile Picture -->
         <div class="profile-picture">
             <img src="images/profile.jpg" alt="Profile Picture">
@@ -47,7 +53,8 @@
                 <button class="social-button" onclick="window.location.href='https://www.youtube.com/@furplexik'">YouTube</button>
                 <button class="social-button" onclick="window.location.href='https://www.kick.com/furplex'">Kick</button>
                 <button class="social-button" onclick="window.location.href='https://www.instagram.com/furplex._/'">Instagram</button>
-                <button class="social-button" onclick="window.location.href='#'">Business Web, working on it</button>
+                <button class="social-button" onclick="window.location.href='https://www.twitch.tv/furplex'">twitch</button>
+                <button class="social-button" onclick="window.location.href='databaselist.html'">ProjectsDatabase</button>
             </div>
         </div>
 
@@ -87,18 +94,17 @@
             <h2>Professional</h2>
             <p>Here you can find anything I do professionally. If you really need anything you can DM on Discord or contact me with mail. All contacts are slightly higher.</p>
             <div class="professional-content">
-                <div class="professional-item">
+                <div class="professional-item web-development">
                     <img src="images/webdev.png" alt="Web Development">
                     <h3>Web Development</h3>
                     <p>I do web development using the Flask framework. Can be Web Applications or just simple Websites.</p>
                 </div>
-                <div class="professional-item">
-                    <img src="images/minecraftservertechnic.png" alt="3D Modelling & Render">
-                    <h3>minecraft server technic</h3>
-                    <p>
-                        I am a professional minecraft technician, I am able to work for you cheaply but also expensively, because I am very good at this job, I have already worked for larger minecraft servers, I am also able to make my own minecraft plugins, if you want to do something or give advice, write to me on discord</p>
+                <div class="professional-item minecraft-server-technic">
+                    <img src="images/minecraftservertechnic.png" alt="Minecraft Server Technic">
+                    <h3>Minecraft Server Technic</h3>
+                    <p>I am a professional minecraft technician, I am able to work for you cheaply but also expensively, because I am very good at this job, I have already worked for larger minecraft servers, I am also able to make my own minecraft plugins, if you want to do something or give advice, write to me on discord</p>
                 </div>
-                <div class="professional-item">
+                <div class="professional-item software-development">
                     <img src="images/softwaredevelopment.png" alt="Software Development">
                     <h3>Software Development</h3>
                     <p>Currently I do software development in Python. All sort of automation tasks, screen detection, bots or simple AIs. I can also make UI for the app as well.</p>
@@ -109,9 +115,13 @@
         <!-- Donate Section -->
         <div class="donate-section">
             <p>If you like my work and want to support me, consider donating:</p>
-            <button class="donate-button" onclick="window.location.href='https://streamelements.com/furplex/tip'">Donate</button>
+            <button class="donate-button" onclick="window.location.href='https://paypal.me/magickl918?country.x=CZ&locale.x=en_US'">Donate</button>
         </div>
     </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="spinner" style="display: none;"></div>
+
     <script src="scripts.js"></script>
 </body>
 </html>

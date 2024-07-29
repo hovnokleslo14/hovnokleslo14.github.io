@@ -1,25 +1,46 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Kanji animation code
-    const kanjiChars = ['日', '月', '火', '水', '木', '金', '土', '山', '川', '田'];
-    const colors = ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF', '#FFFFFF'];
+    const languageButton = document.getElementById('language-button');
+    const popup = document.getElementById('language-popup');
+    const closeButton = document.querySelector('.close-button');
 
-    const background = document.createElement('div');
-    background.className = 'background';
-    document.body.appendChild(background);
+    languageButton.addEventListener('click', () => {
+        popup.style.display = 'block';
+    });
 
-    function createKanji() {
-        const kanji = document.createElement('div');
-        kanji.className = 'kanji';
-        kanji.textContent = kanjiChars[Math.floor(Math.random() * kanjiChars.length)];
-        kanji.style.left = `${Math.random() * 100}%`;
-        kanji.style.color = colors[Math.floor(Math.random() * colors.length)];
-        kanji.style.animationDuration = `${5 + Math.random() * 10}s`;
-        background.appendChild(kanji);
+    closeButton.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
 
-        kanji.addEventListener('animationend', () => {
-            kanji.remove();
-        });
-    }
+    window.addEventListener('click', (event) => {
+        if (event.target === popup) {
+            popup.style.display = 'none';
+        }
+    });
 
-    setInterval(createKanji, 100);
+    // Infinite scroll
+    let page = 1;
+    const contentContainer = document.getElementById('content-container');
+    const loadingSpinner = document.getElementById('loading-spinner');
+
+    const loadMoreContent = () => {
+        loadingSpinner.style.display = 'block';
+        // Simulate fetching new content
+        setTimeout(() => {
+            const newSection = document.createElement('div');
+            newSection.className = 'section';
+            newSection.innerHTML = `
+                <h2>New Section ${page}</h2>
+                <p>This is the newly loaded content for page ${page}.</p>
+            `;
+            contentContainer.appendChild(newSection);
+            loadingSpinner.style.display = 'none';
+            page++;
+        }, 1000);
+    };
+
+    window.addEventListener('scroll', () => {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+            loadMoreContent();
+        }
+    });
 });
