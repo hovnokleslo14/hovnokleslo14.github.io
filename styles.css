@@ -57,13 +57,6 @@ a:hover {
     background-color: #2ea043;
 }
 
-.profile-picture img {
-    max-width: 150px;
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto 20px;
-}
-
 .section {
     margin-bottom: 30px;
     padding: 20px;
@@ -85,6 +78,33 @@ a:hover {
 .section:hover {
     background-color: #21262d;
     color: #c9d1d9;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #30363d;
+    border-radius: 4px;
+    background-color: #0d1117;
+    color: #c9d1d9;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: #58a6ff;
 }
 
 .social-buttons {
@@ -293,4 +313,36 @@ a:hover {
     to {
         transform: rotate(360deg);
     }
+}
+
+/* Styles from databaselist.html */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #30363d;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #21262d;
+}
+
+tr:hover {
+    background-color: #30363d;
+}
+
+.status-online {
+    color: #238636;
+}
+
+.status-offline {
+    color: #da3633;
 }

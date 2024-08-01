@@ -1,46 +1,36 @@
+// Function to open a popup with given title and description
+function openPopup(title, description) {
+    document.getElementById('popup-title').innerText = title;
+    document.getElementById('popup-description').innerText = description;
+    document.getElementById('popup').style.display = 'block';
+}
+
+// Function to close the popup
+function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+}
+
+// Function to fetch project status from API
+function fetchProjectStatus() {
+    const apiUrl = 'https://api.mcstatus.io/v2/status/java/velsatis.sytes.net:22440';
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            const statusElement = document.getElementById('status-projekt-1');
+            if (data.online) {
+                statusElement.innerText = 'ONLINE 🟢';
+            } else {
+                statusElement.innerText = 'OFFLINE 🔴';
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching project status:', error);
+            document.getElementById('status-projekt-1').innerText = 'Error';
+        });
+}
+
+// Example usage of fetchProjectStatus function
 document.addEventListener('DOMContentLoaded', () => {
-    const languageButton = document.getElementById('language-button');
-    const popup = document.getElementById('language-popup');
-    const closeButton = document.querySelector('.close-button');
-
-    languageButton.addEventListener('click', () => {
-        popup.style.display = 'block';
-    });
-
-    closeButton.addEventListener('click', () => {
-        popup.style.display = 'none';
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target === popup) {
-            popup.style.display = 'none';
-        }
-    });
-
-    // Infinite scroll
-    let page = 1;
-    const contentContainer = document.getElementById('content-container');
-    const loadingSpinner = document.getElementById('loading-spinner');
-
-    const loadMoreContent = () => {
-        loadingSpinner.style.display = 'block';
-        // Simulate fetching new content
-        setTimeout(() => {
-            const newSection = document.createElement('div');
-            newSection.className = 'section';
-            newSection.innerHTML = `
-                <h2>New Section ${page}</h2>
-                <p>This is the newly loaded content for page ${page}.</p>
-            `;
-            contentContainer.appendChild(newSection);
-            loadingSpinner.style.display = 'none';
-            page++;
-        }, 1000);
-    };
-
-    window.addEventListener('scroll', () => {
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-            loadMoreContent();
-        }
-    });
+    fetchProjectStatus();
 });

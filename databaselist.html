@@ -5,156 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects Database</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #0d1117;
-            color: #c9d1d9;
-            line-height: 1.5;
-        }
-
-        a {
-            color: #58a6ff;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #161b22;
-            padding: 10px 20px;
-            border-bottom: 1px solid #30363d;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            max-width: 50px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        .main-button {
-            background-color: #238636;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        .main-button:hover {
-            background-color: #2ea043;
-        }
-
-        .section {
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 6px;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .section h2 {
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-
-        .section p {
-            font-size: 16px;
-        }
-
-        .section:hover {
-            background-color: #21262d;
-            color: #c9d1d9;
-        }
-
-        .popup {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .popup-content {
-            background-color: #161b22;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #30363d;
-            width: 80%;
-            max-width: 500px;
-            color: #c9d1d9;
-        }
-
-        .close-button {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close-button:hover,
-        .close-button:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        table, th, td {
-            border: 1px solid #30363d;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #21262d;
-        }
-
-        tr:hover {
-            background-color: #30363d;
-        }
-
-        .status-online {
-            color: #238636;
-        }
-
-        .status-offline {
-            color: #da3633;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
 </head>
 
 <body>
@@ -175,78 +29,65 @@
                         <th>Název Projektu</th>
                         <th>Popis</th>
                         <th>Status</th>
-                        <th>Akce</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>working in progress</td>
-                        <td>working in progress</td>
-                        <td id="status-projekt-1">Loading...</td>
-                        <td><button onclick="openPopup('Projekt 1', 'Podrobný popis detailů projektu 1. Může obsahovat více informací a detailní specifikace projektu.')">Zobrazit</button></td>
+                        <tr>
+                            <td>barvy statusů</td>
+                            <td>🔴= OFFLINE, 🟠= MOŽNÁ SE OBNOVÝ, 🟢= ONLINE</td>
+                        </tr>
+                        <td>furplex web</td>
+                        <td>Projekt plánuji průběžně aktualizovat</td>
+                        <td id="status-projekt-1">🟢</td>
                     </tr>
                     <tr>
-                        <td>working in progress</td>
-                        <td>working in progress</td>
-                        <td id="status-projekt-2">Loading...</td>
-                        <td><button onclick="openPopup('Projekt 2', 'Podrobný popis detailů projektu 2. Může obsahovat více informací a detailní specifikace projektu.')">Zobrazit</button></td>
+                        <td>furbox</td>
+                        <td>tato aplikace byla něco jakoje je share me ale lepší</td>
+                        <td id="status-projekt-2">🔴</td>
                     </tr>
                     <tr>
-                        <td>working in progress</td>
-                        <td>working in progress</td>
-                        <td id="status-projekt-3">Loading...</td>
-                        <td><button onclick="openPopup('Projekt 3', 'Podrobný popis detailů projektu 3. Může obsahovat více informací a detailní specifikace projektu.')">Zobrazit</button></td>
+                        <td>chatter</td>
+                        <td>tato aplikace byla něco jako signal ale fungovalo to přes discord a bylo to celé zašifrované ale možná tento project obnovím</td>
+                        <td id="status-projekt-3">🟠</td>
                     </tr>
-                    <!-- Další projekty -->
+                    <tr>
+                        <td>DarkhubBOT</td>
+                        <td>toto byl discord bot který byl určen na databáze a mněl hromadu funkcí a možná bude obnoven a zveřejněn</td>
+                        <td id="status-projekt-1">🟠</td>
+                    </tr>
+                    <tr>
+                        <td>NexusTweaks</td>
+                        <td>Tento project jsem připravoval 2-3 roky a zjistil jsem že to je docela k ničemu protože to byla jen costomizace windows a úprava grafického rozhraní</td>
+                        <td id="status-projekt-1">🔴</td>
+                    </tr>
+                    <tr>
+                        <td>FurplexNews</td>
+                        <td>Toto mněly být automatizované zprávy ze světa a z her ale nakonec to nemnělo úspěch takže je s tím konec ale jestly o to bude ohlas tak to obnovým ale zatím tento status</td>
+                        <td id="status-projekt-1">🔴</td>
+                    </tr>
+                    <tr>
+                        <td>FurrBot</td>
+                        <td>to bylo něco jako mee6 ale nakonec nebyly dostatečné finance na udržovaní discord bot serveru a webu takže jsme byly to neceni ukončit</td>
+                        <td id="status-projekt-1">🟠</td>
+                    </tr>
+                    <!-- Další řádky projektů zde -->
                 </tbody>
             </table>
         </div>
-    </div>
 
-    <div id="projectPopup" class="popup">
-        <div class="popup-content">
-            <span class="close-button" onclick="closePopup()">&times;</span>
-            <h2 id="popupTitle"></h2>
-            <p id="popupDescription"></p>
+        <!-- Popup modal -->
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close-button" onclick="closePopup()">&times;</span>
+                <h2 id="popup-title"></h2>
+                <p id="popup-description"></p>
+            </div>
         </div>
+
     </div>
 
-    <script>
-        function openPopup(title, description) {
-            document.getElementById('popupTitle').innerText = title;
-            document.getElementById('popupDescription').innerText = description;
-            document.getElementById('projectPopup').style.display = 'block';
-        }
-
-        function closePopup() {
-            document.getElementById('projectPopup').style.display = 'none';
-        }
-
-        function checkApiStatus(projectId, apiUrl) {
-            fetch(apiUrl)
-                .then(response => {
-                    const statusElement = document.getElementById(`status-${projectId}`);
-                    if (response.ok) {
-                        statusElement.innerText = 'Online';
-                        statusElement.classList.add('status-online');
-                    } else {
-                        statusElement.innerText = 'Offline';
-                        statusElement.classList.add('status-offline');
-                    }
-                })
-                .catch(error => {
-                    const statusElement = document.getElementById(`status-${projectId}`);
-                    statusElement.innerText = 'Offline';
-                    statusElement.classList.add('status-offline');
-                });
-        }
-
-        // Kontrola statusu pro jednotlivé projekty
-        checkApiStatus('projekt-1', 'https://api.example.com/project1');
-        checkApiStatus('projekt-2', 'https://api.example.com/project2');
-        checkApiStatus('projekt-3', 'https://api.example.com/project3');
-        // Přidejte další kontroly podle potřeby
-    </script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
