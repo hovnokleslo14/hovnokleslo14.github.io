@@ -7,23 +7,18 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
     <script>
-        
         document.addEventListener('contextmenu', event => event.preventDefault());
 
         function sendFormData(event) {
             event.preventDefault();
             
-
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const discord = document.getElementById('discord').value;
             const request = document.getElementById('request').value;
             const howMuch = document.getElementById('how_much').value;
 
-            const part1 = 'https://ptb.discord.com/api/webhooks/';
-            const part2 = '1268332856476700764/';
-            const part3 = 'bpaZE7aBNRPfy_NDLruV50sb6BMD3R_D-C9ZiIBRwYaj7ehv-AujLJQjv7jzVniJpBDE';
-            const webhookUrl = part1 + part2 + part3;
+            const webhookUrl = 'https://ptb.discord.com/api/webhooks/1268332856476700764/bpaZE7aBNRPfy_NDLruV50sb6BMD3R_D-C9ZiIBRwYaj7ehv-AujLJQjv7jzVniJpBDE';
 
             const payload = {
                 username: "new form",
@@ -42,7 +37,6 @@
                 ]
             };
 
-            // Odeslání požadavku na webhook
             fetch(webhookUrl, {
                 method: 'POST',
                 headers: {
